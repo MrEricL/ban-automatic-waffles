@@ -9,7 +9,7 @@ We are using the [Gun Violence Database](http://gun-violence.org/). The database
 
 ## Relevance 
 
-With the recent uproar over the Parkland shooting, we wanted to investigate if there were any patterns to shootings.
+With the recent uproar over the Parkland shooting, we wanted to investigate if there were any patterns to shootings, from gender fatalities/shooters to race fatalities/shooters to age fatalities/shooters.
 
 ## Aim
 
