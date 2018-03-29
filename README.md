@@ -31,3 +31,8 @@ We were curious if there existed any patterns such as one between a state and th
 ## d3 Usage
 
 We plan to use d3 to create animated transitions between graphs as well as to create the graphs/heatmaps themselves.
+
+
+
+For our Info: 
+./log.sh firstL "added x, y, z"
