@@ -33,10 +33,6 @@ We were curious if there existed any patterns such as one between a state and th
 We plan to use d3 to create animated transitions between graphs as well as to create the graphs/heatmaps themselves.
 
 
-
-For our Info: 
-./log.sh firstL "added x, y, z"
-
 ## Credits
 
 We are using the US map from [this example](http://bl.ocks.org/NPashaP/a74faf20b492ad377312) as a base.
