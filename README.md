@@ -36,3 +36,7 @@ We plan to use d3 to create animated transitions between graphs as well as to cr
 
 For our Info: 
 ./log.sh firstL "added x, y, z"
+
+## Credits
+
+We are using the US map from [this example](http://bl.ocks.org/NPashaP/a74faf20b492ad377312) as a base.
