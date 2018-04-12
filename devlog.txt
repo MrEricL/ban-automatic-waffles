@@ -1,5 +1,8 @@
 danielC -- 2018-03-29 02:25:06
 Created devlog
 
+ericL -- 2018-04-11 02:34:17
+Added base code for the map
+
 yiduoK -- 2018-04-12 05:21:48
 Created dictionary with states and their numbers of shootings in the past idk how many years but it's there check it out :DD
