@@ -6,3 +6,9 @@ Added base code for the map
 
 yiduoK -- 2018-04-12 05:21:48
 Created dictionary with states and their numbers of shootings in the past idk how many years but it's there check it out :DD
+
+
+
+
+ericL -- 2018-04-12 05:00:00
+Reformatted everything
