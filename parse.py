@@ -11,8 +11,29 @@ states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
           "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
 
 state_shootings = {} # this is what we want!!!!
+state_gender = {}
+state_race = {}
+
 for state in states:
     state_shootings[state] = 0
+
+for state in states:
+    state_gender[state] = {}
+    state_gender[state]['female'] = 0
+    state_gender[state]['male'] = 0
+
+for state in states:
+    state_race[state] = {}
+    state_race[state]['white'] = 0
+    state_race[state]['black'] = 0
+    state_race[state]['asian'] = 0
+    state_race[state]['hispanic'] = 0 # Hispanic
+    # state_race[state]['Latino'] = 0
+    # state_race[state]['African American'] = 0
+    # state_race[state]['Caucasion'] = 0
+    # state_race[state]['Alaska Native'] = 0
+
+counting =0
 
 with open('events.csv') as csvfile:
     reader = csv.DictReader(csvfile)
@@ -25,6 +46,38 @@ with open('events.csv') as csvfile:
             print 'except message; ignore'
         places.append(row['Address'])
         people.append(row['Info about participants'])
+        listy = row['Info about participants']
+        new_list = listy.replace("u'", "'")
+        new_list = new_list.replace("'", '"')
+        new_list = new_list.replace("True", 'true')
+        new_list = new_list.replace("False", 'false')
 
-print state_shootings # go to the terminal and copy this dictionary!!
+        try:
+            new_list = json.loads(new_list)
+            counting += 1
+            for person in new_list:
+                if person['is_victim'] == True and layers[2] == 'USA':
+                    if person['gender'] == 'Male':
+                        state_gender[layers[1][:2]]['male'] +=1
+                    else:
+                        state_gender[layers[1][:2]]['female'] +=1
+                    if person['race'] == 'white' or person['race'] == 'Caucasian':
+                        state_race[layers[1][:2]]['white'] +=1
+                    elif person['race'] == 'black' or person['race'] == 'African American':
+                        state_race[layers[1][:2]]['black'] +=1
+                    elif person['race'] == 'Latino' or person['race'] == 'Hispanic':
+                        state_race[layers[1][:2]]['hispanic'] +=1
+                    else:
+                        state_race[layers[1][:2]]['asian'] +=1
+        except:
+            print "couldn't parse it....?"
+        # print new_list
+
+print state_gender
+print state_race
+# print state_shootings # go to the terminal and copy this dictionary!!
 # it's what we want!!
+
+# j = '[{"injured": false, "name": "Andrew Joseph Todd", "hospitalized": false, "gender": "Male", "age": "20", "race": "", "killed": true, "is_victim": true}, {"injured": false, "name": "", "hospitalized": false, "gender": "Male", "age": "", "race": "", "killed": false, "is_victim": false}, {"injured": false, "name": "", "hospitalized": false, "gender": "Male", "age": "", "race": "", "killed": false, "is_victim": false}]'
+# d = json.loads(j)
+# print d
