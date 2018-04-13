@@ -10,10 +10,34 @@ states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
           "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
           "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
 
-state_shootings = {} # this is what we want!!!!
+# {'WA': [{"label": "Male", "count": 10} {"label": "Female", "count", 2}],  'NY': [{"label": "Male", "count": 10} {"label": "Female", "count", 2}] ...}
+state_shootings = {}
 state_gender = {}
 state_race = {}
 state_age = {}
+
+state_gender_karen = {}
+for state in states:
+    state_gender_karen[state] = []
+    state_gender_karen[state].append({"label": "Male", "count": 0})
+    state_gender_karen[state].append({"label": "Female", "count": 0})
+
+state_race_karen = {}
+for state in states:
+    state_race_karen[state] = []
+    state_race_karen[state].append({"label": "Asian", "count": 0})
+    state_race_karen[state].append({"label": "Black", "count": 0})
+    state_race_karen[state].append({"label": "Hispanic", "count": 0})
+    state_race_karen[state].append({"label": "White", "count": 0})
+
+state_age_karen = {}
+for state in states:
+    state_age_karen[state] = []
+    state_age_karen[state].append({"label": "0-20", "count": 0})
+    state_age_karen[state].append({"label": "21-30", "count": 0})
+    state_age_karen[state].append({"label": "31-40", "count": 0})
+    state_age_karen[state].append({"label": "41-50", "count": 0})
+    state_age_karen[state].append({"label": "51+", "count": 0})
 
 for state in states:
     state_shootings[state] = 0
@@ -69,41 +93,55 @@ with open('events.csv') as csvfile:
                     #gender
                     if person['gender'] == 'Male':
                         state_gender[layers[1][:2]]['male'] +=1
+                        state_gender_karen[layers[1][:2]][0]['count'] += 1
                     else:
                         state_gender[layers[1][:2]]['female'] +=1
+                        state_gender_karen[layers[1][:2]][1]['count'] += 1
                     #race
                     if person['race'] == 'white' or person['race'] == 'Caucasian':
                         state_race[layers[1][:2]]['white'] +=1
+                        state_race_karen[layers[1][:2]][3]['count'] +=1
                     elif person['race'] == 'black' or person['race'] == 'African American':
                         state_race[layers[1][:2]]['black'] +=1
+                        state_race_karen[layers[1][:2]][1]['count'] +=1
                     elif person['race'] == 'Latino' or person['race'] == 'Hispanic':
                         state_race[layers[1][:2]]['hispanic'] +=1
+                        state_race_karen[layers[1][:2]][2]['count'] +=1
                     else:
                         state_race[layers[1][:2]]['asian'] +=1
+                        state_race_karen[layers[1][:2]][0]['count'] +=1
                     #age
                     if int(person['age']) < 21:
                         state_age[layers[1][:2]]['0-20'] += 1
+                        state_age_karen[layers[1][:2]][0]['count'] +=1
                     elif int(person['age']) < 31:
                         state_age[layers[1][:2]]['21-30'] += 1
+                        state_race_karen[layers[1][:2]][1]['count'] +=1
                     elif int(person['age']) < 41:
                         state_age[layers[1][:2]]['31-40'] += 1
+                        state_race_karen[layers[1][:2]][2]['count'] +=1
                     elif int(person['age']) < 51:
                         state_age[layers[1][:2]]['41-50'] += 1
+                        state_race_karen[layers[1][:2]][3]['count'] +=1
                     else:
                         state_age[layers[1][:2]]['51+'] += 1
+                        state_race_karen[layers[1][:2]][4]['count'] +=1
                         
         except:
             print "couldn't parse it....?"
         # print new_list
 
-print '\n\nstate numbers'
-print state_shootings
-print '\n\nby gender:'
-print state_gender
-print '\n\nby race:'
-print state_race
-print '\n\nby age:'
+# print '\n\nstate numbers'
+# print state_shootings
+# print '\n\nby gender:'
+# print state_gender_karen
+# print state_gender
+# print '\n\nby race:'
+# print state_race_karen
+# print state_race
+# print '\n\nby age:'
 print state_age
+print state_age_karen
 # print state_shootings # go to the terminal and copy this dictionary!!
 # it's what we want!!
 
