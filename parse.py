@@ -131,16 +131,16 @@ with open('events.csv') as csvfile:
             print "couldn't parse it....?"
         # print new_list
 
-# print '\n\nstate numbers'
-# print state_shootings
-# print '\n\nby gender:'
-# print state_gender_karen
+print '\n\nstate numbers'
+print state_shootings
+print '\n\nby gender:'
+print state_gender_karen
 # print state_gender
-# print '\n\nby race:'
-# print state_race_karen
+print '\n\nby race:'
+print state_race_karen
 # print state_race
-# print '\n\nby age:'
-print state_age
+print '\n\nby age:'
+# print state_age
 print state_age_karen
 # print state_shootings # go to the terminal and copy this dictionary!!
 # it's what we want!!
