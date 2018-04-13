@@ -4,11 +4,13 @@ Created devlog
 ericL -- 2018-04-11 02:34:17
 Added base code for the map
 
+ericL -- 2018-04-12 05:00:00
+Reformatted everything
+
 yiduoK -- 2018-04-12 05:21:48
 Created dictionary with states and their numbers of shootings in the past idk how many years but it's there check it out :DD
 
+yiduoK -- 2018-04-12 21:13:15
+dictionary organized by race, gender, and age
 
 
-
-ericL -- 2018-04-12 05:00:00
-Reformatted everything
