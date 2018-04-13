@@ -12,3 +12,6 @@ Created dictionary with states and their numbers of shootings in the past idk ho
 
 ericL -- 2018-04-12 05:00:00
 Reformatted everything
+
+karenC — 2018-04-12 17:14:01
+Worked on displaying pie charts
