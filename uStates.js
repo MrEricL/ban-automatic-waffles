@@ -226,3 +226,36 @@
     this.uStates = uStates;
 }
 )();
+
+
+
+    function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
+        return "<h4>"+n+"</h4><table>"+
+            "<tr><td>Number of Shootings</td><td>"+(d.numShoot)+"</td></tr>"+
+            "</table>";
+    }
+    
+    //STILL SAMPLE DATA EDIT , IN ALPHA ORDER
+    var shootList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 
+                    14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 
+                    26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 
+                    38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
+    var pos = 0
+    var sampleData ={}; /* Sample random data. */   
+    ["AK","AL","AR","AZ","CA","CO","CT","DC",
+    "DE","FL","GA","HI","IA","ID","IL","IN",
+    "KS","KY","LS","MA","MD","ME","MI","MN",
+    "MO","MS","MT","NC","ND","NE","NH","NJ",
+    "NM","NV","NY","OH","OK","OR","PA","RI",
+    "SC","SD","TN","TX","UT","VA","VT","WA",
+    "WI","WV","WY"]
+        .forEach(function(d){ 
+            var x = shootList[pos];
+            sampleData[d]={numShoot:x, color:d3.interpolate("#ffffcc", "#800026")(x/100)}; 
+            pos+=1
+        });
+    
+    /* draw states on id #statesvg */   
+    uStates.draw("#statesvg", sampleData, tooltipHtml);
+    
+    d3.select(self.frameElement).style("height", "600px"); 

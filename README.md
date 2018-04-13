@@ -13,7 +13,7 @@ With the recent uproar over the Parkland shooting, we wanted to investigate if t
 
 ## Aim
 
-We plan to show the amount of gun violence per state via something similar to a heat map, and we plan to show racial, gender, and age breakdowns of both shooters and victims either through transitioning graphs or with a similar heat map.
+We plan to show the amount of gun violence per state via something similar to a heat map, and we plan to show racial, gender, and age breakdowns of both shooters and victims either through transitioning(changing on click) graphs or with a similar heat map.
 
 ## No User Interaction
 
@@ -21,7 +21,9 @@ The website would display a heat map of gun violence by state with various butto
 
 ## User Interaction
 
-The user would be able to click on states and view the information more indepth. It would also be possible to see the breakdown of the victims and shooters, and transition between different graphs of general gun violence, racial breakdowns, age breakdowns, and gender breakdowns.
+The user would be able to click on states and view the information more indepth through a window that comes up from the side. It would also be possible to see the breakdown of the victims and shooters, and transition between different graphs of general gun violence, racial breakdowns, age breakdowns, and gender breakdowns. This would be shown using pie charts and could be selected with buttons. 
+
+Possible: On click, zoom into state and display a heatmap of shootings in specific districts.
 
 ## Questions
 
