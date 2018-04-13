@@ -10,7 +10,8 @@ Reformatted everything
 yiduoK -- 2018-04-12 05:21:48
 Created dictionary with states and their numbers of shootings in the past idk how many years but it's there check it out :DD
 
+karenC — 2018-04-12 17:14:01
+Worked on displaying pie charts
+
 yiduoK -- 2018-04-12 21:13:15
 dictionary organized by race, gender, and age
-
-

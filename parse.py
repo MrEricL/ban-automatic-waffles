@@ -96,6 +96,8 @@ with open('events.csv') as csvfile:
             print "couldn't parse it....?"
         # print new_list
 
+print '\n\nstate numbers'
+print state_shootings
 print '\n\nby gender:'
 print state_gender
 print '\n\nby race:'
