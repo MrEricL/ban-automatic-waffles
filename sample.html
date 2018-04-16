@@ -100,14 +100,18 @@ function mergeWithFirstEqualZero(first, second){
 		});
 }
 
+var duration = 50;
+
 change(data1);
 function change(data) {
-	var duration = +document.getElementById("duration").value;
+	//var duration = +document.getElementById("duration").value;
 	var data0 = svg.select(".slices").selectAll("path.slice")
-		.data().map(function(d) { return d.data });
+		.data().map(function(d) { return d.data.count });
 	if (data0.length == 0) data0 = data;
 	var was = mergeWithFirstEqualZero(data, data0);
 	var is = mergeWithFirstEqualZero(data0, data);
+	console.log(was);
+	console.log(is);
 	/* ------- SLICE ARCS -------*/
 
 	var slice = svg.select(".slices").selectAll("path.slice")
@@ -116,7 +120,7 @@ function change(data) {
 	slice.enter()
 		.insert("path")
 		.attr("class", "slice")
-		.style("fill", function(d) { return color(d.data.label); })
+		.style("fill", function(d) { return d.data.label; })
 		.each(function(d) {
 			this._current = d;
 		});
