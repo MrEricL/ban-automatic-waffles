@@ -75,6 +75,7 @@ with open('events.csv') as csvfile:
         try:
             if layers[2] == 'USA':
                 state_shootings[layers[1][:2]]+=1
+                counting += 1
         except:
             print 'except message; ignore'
         places.append(row['Address'])
@@ -87,7 +88,6 @@ with open('events.csv') as csvfile:
 
         try:
             new_list = json.loads(new_list)
-            counting += 1
             for person in new_list:
                 if person['is_victim'] == True and layers[2] == 'USA':
                     #gender
@@ -128,23 +128,36 @@ with open('events.csv') as csvfile:
                         state_race_karen[layers[1][:2]][4]['count'] +=1
                         
         except:
-            print "couldn't parse it....?"
+            # print "couldn't parse it....?"
+            print ""
         # print new_list
 
 print '\n\nstate numbers'
-print state_shootings
+# print state_shootings
 print '\n\nby gender:'
-print state_gender_karen
+# print state_gender_karen
 # print state_gender
 print '\n\nby race:'
-print state_race_karen
+# print state_race_karen
 # print state_race
 print '\n\nby age:'
 # print state_age
-print state_age_karen
+# print state_age_karen
 # print state_shootings # go to the terminal and copy this dictionary!!
-# it's what we want!!
 
-# j = '[{"injured": false, "name": "Andrew Joseph Todd", "hospitalized": false, "gender": "Male", "age": "20", "race": "", "killed": true, "is_victim": true}, {"injured": false, "name": "", "hospitalized": false, "gender": "Male", "age": "", "race": "", "killed": false, "is_victim": false}, {"injured": false, "name": "", "hospitalized": false, "gender": "Male", "age": "", "race": "", "killed": false, "is_victim": false}]'
-# d = json.loads(j)
-# print d
+male_shootings = 0
+for state in state_gender:
+    male_shootings += state_gender[state]['male']
+
+female_shootings = 0
+for state in state_gender:
+    female_shootings += state_gender[state]['female']
+
+female_shootings = 0
+for state in state_gender:
+    female_shootings += state_gender[state]['female']
+
+print "male shooters:"
+print male_shootings
+print "female shooters:"
+print female_shootings
