@@ -132,18 +132,29 @@ with open('events.csv') as csvfile:
             print ""
         # print new_list
 
+f = open("parsed.txt", "w")
+
 print '\n\nstate numbers'
-# print state_shootings
+f.write('state numbers\n')
+print state_shootings
+f.write(json.dumps(state_shootings))
+
 print '\n\nby gender:'
-# print state_gender_karen
+f.write('\n\nstate gender\n')
+print state_gender_karen
+f.write(json.dumps(state_gender_karen))
 # print state_gender
+
 print '\n\nby race:'
-# print state_race_karen
+f.write('\n\nstate race\n')
+print state_race_karen
+f.write(json.dumps(state_race_karen))
 # print state_race
 print '\n\nby age:'
+f.write('\n\nstate age\n')
+print state_age_karen
+f.write(json.dumps(state_age_karen))
 # print state_age
-# print state_age_karen
-# print state_shootings # go to the terminal and copy this dictionary!!
 
 male_shootings = 0
 for state in state_gender:
@@ -153,11 +164,66 @@ female_shootings = 0
 for state in state_gender:
     female_shootings += state_gender[state]['female']
 
-female_shootings = 0
+black_shootings = 0
 for state in state_gender:
-    female_shootings += state_gender[state]['female']
+    black_shootings += state_race[state]['black']
 
+white_shootings = 0
+for state in state_gender:
+    white_shootings += state_race[state]['white']
+
+asian_shootings = 0
+for state in state_gender:
+    asian_shootings += state_race[state]['asian']
+
+hispanic_shootings = 0
+for state in state_gender:
+    hispanic_shootings += state_race[state]['hispanic']
+
+teens = 0
+for state in state_age:
+    teens += state_age[state]['0-20']
+
+twenties = 0
+for state in state_age:
+    twenties += state_age[state]['21-30']
+
+thirties = 0
+for state in state_age:
+    thirties += state_age[state]['31-40']
+
+forties = 0
+for state in state_age:
+    forties += state_age[state]['41-50']
+
+fifties = 0
+for state in state_age:
+    fifties += state_age[state]['51+']
+
+print '\n\ngender'
 print "male shooters:"
 print male_shootings
 print "female shooters:"
 print female_shootings
+
+print '\n\nrace'
+print "black shooters:"
+print black_shootings
+print "white shooters:"
+print white_shootings
+print "asian shooters:"
+print asian_shootings
+print "hispanic shooters:"
+print hispanic_shootings
+
+print '\n\nage:'
+print "0-20"
+print teens
+print "21-30"
+print twenties
+print "31-40"
+print thirties
+print "41-50"
+print forties
+print "51+"
+print fifties
