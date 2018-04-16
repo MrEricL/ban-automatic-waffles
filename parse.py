@@ -201,20 +201,34 @@ for state in state_age:
     fifties += state_age[state]['51+']
 
 print '\n\ngender'
+
 print "male shooters:"
+f.write('\n\nnationals:\nmale shooters:\n')
 print male_shootings
+f.write(str(male_shootings))
 print "female shooters:"
+f.write('\nfemale shooters:\n')
 print female_shootings
+f.write(str(female_shootings))
 
 print '\n\nrace'
 print "black shooters:"
+f.write('\nblack shooters:\n')
 print black_shootings
+f.write(str(black_shootings))
+
 print "white shooters:"
+f.write('\nwhite shooters:\n')
 print white_shootings
-print "asian shooters:"
+f.write(str(white_shootings))
+print "asian shooters:\n"
+f.write('\nasian shooters:\n')
 print asian_shootings
+f.write(str(asian_shootings))
 print "hispanic shooters:"
+f.write('\nhispanic shooters:\n')
 print hispanic_shootings
+f.write(str(hispanic_shootings))
 
 print '\n\nage:'
 print "0-20"
@@ -227,3 +241,14 @@ print "41-50"
 print forties
 print "51+"
 print fifties
+
+f.write("\n\n0-20\n")
+f.write(str(teens))
+f.write("\n\n21-30\n")
+f.write(str(twenties))
+f.write("\n\n31-40\n")
+f.write(str(thirties))
+f.write("\n\n41-50\n")
+f.write(str(forties))
+f.write("\n\n51+\n")
+f.write(str(fifties))
