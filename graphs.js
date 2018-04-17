@@ -3,35 +3,29 @@
             "<tr><td>Number of Shootings</td><td>"+(d.numShoot)+"</td></tr>"+
             "</table>";
     }
-
-
-    var shootList = {"WA": 48, "DE": 29, "DC": 7, "WI": 68, "WV": 19, 
-        "HI": 2, "FL": 113, "WY": 3, "NH": 6, "NJ": 80, "NM": 14, "TX": 139, 
-        "LA": 44, "NC": 90, "ND": 4, "NE": 12, "TN": 56, "NY": 92, "PA": 191, 
-        "CA": 315, "NV": 20, "VA": 58, "CO": 240, "AK": 16, "AL": 54, "AR": 29, 
-        "VT": 7, "IL": 101, "GA": 61, "IN": 67, "IA": 30, "OK": 35, "AZ": 35, "ID": 4, 
-        "CT": 27, "ME": 8, "MD": 52, "MA": 40, "OH": 105, "UT": 18, "MO": 54, "MN": 34,
-         "MI": 58, "RI": 8, "KS": 37, "MT": 17, "MS": 27, "SC": 65, "KY": 36, "OR": 28, "SD": 3}
     
-
-    var stateShooting ={}; /* Sample random data. */   
+    //STILL SAMPLE DATA EDIT , IN ALPHA ORDER
+    var shootList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 
+                    14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 
+                    26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 
+                    38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49,50]
+    var pos = 0
+    var sampleData ={}; /* Sample random data. */   
     ["AK","AL","AR","AZ","CA","CO","CT","DC",
     "DE","FL","GA","HI","IA","ID","IL","IN",
-    "KS","KY","LA","MA","MD","ME","MI","MN",
+    "KS","KY","LS","MA","MD","ME","MI","MN",
     "MO","MS","MT","NC","ND","NE","NH","NJ",
     "NM","NV","NY","OH","OK","OR","PA","RI",
     "SC","SD","TN","TX","UT","VA","VT","WA",
     "WI","WV","WY"]
         .forEach(function(d){ 
-            //console.log(d)
-            //console.log(realShootList[d])
-            var x = shootList[d];
-            // original colors ("#ffffcc", "#800026")
-            stateShooting[d]={numShoot:x, color:d3.interpolate("#ffffcc", "#800026")(x/100)}; 
+            var x = shootList[pos];
+            sampleData[d]={numShoot:x, color:d3.interpolate("gold", "blue")(x/100)}; 
+            pos+=1
         });
     
     /* draw states on id #statesvg */   
-    uStates.draw("#statesvg", stateShooting, tooltipHtml);
+    uStates.draw("#statesvg", sampleData, tooltipHtml);
     
     d3.select(self.frameElement).style("height", "600px"); 
 
