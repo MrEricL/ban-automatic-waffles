@@ -46,7 +46,7 @@ var width = 960,
 var pie = d3.layout.pie()
 	.sort(null)
 	.value(function(d) {
-		return d.value;
+		return d.count;
 	});
 
 var arc = d3.svg.arc()
@@ -59,35 +59,19 @@ var outerArc = d3.svg.arc()
 
 svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-var data1 = [{'count': 31, 'label': 'Male'}, {'count': 14, 'label': 'Female'}]
+//var data1 = [{'count': 31, 'label': 'Male'}, {'count': 14, 'label': 'Female'}]
+var color = d3.scale.category20();
+
+var natdatagender = [{'count': 1804, 'label':'Male'}, {'count': 747, 'label':'Female'}];
+var natdatarace = [{'count': 28, 'label':'Black'}, {'count': 2466, 'label':'Asian'},{'count': 18, 'label':'White'}, {'count': 39, 'label':'Hispanic'}];
+var natdataage = [{'count': 400, 'label':'0-20'}, {'count': 409, 'label':'21-30'}, {'count': 221, 'label':'31-40'}, {'count': 98, 'label':'41-50'}, {'count':114, 'label':'51+'}];
+
 
 var key = function(d){ return d.data.label; };
 var val = function(d){return d.data.count; };
-/**
-var color = d3.scale.category20()
-	.domain(["Lorem ipsum", "dolor sit", "amet", "consectetur", "adipisicing", "elit", "sed", "do", "eiusmod", "tempor", "incididunt"])
-	//.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
-
-function randomData (){
-	var labels = color.domain();
-	return labels.map(function(label){
-		return { label: label, value: Math.random() }
-	}).filter(function() {
-		return Math.random() > .5;
-	}).sort(function(a,b) {
-		return d3.ascending(a.label, b.label);
-	});
-}
-
-change(randomData());
-	**/
-/**
-d3.select(".randomize")
-	.on("click", function(){
-		change(randomData());
-	});
-**/
+var color = d3.scale.category20();
+	
 function mergeWithFirstEqualZero(first, second){
 	var secondSet = d3.set(); second.forEach(function(d) { secondSet.add(d.label); });
 
@@ -100,18 +84,19 @@ function mergeWithFirstEqualZero(first, second){
 		});
 }
 
-var duration = 50;
+var duration = 500;
 
-change(data1);
+change(natdatarace);
 function change(data) {
 	//var duration = +document.getElementById("duration").value;
 	var data0 = svg.select(".slices").selectAll("path.slice")
-		.data().map(function(d) { return d.data.count });
+		.data().map(function(d) { return val });
 	if (data0.length == 0) data0 = data;
 	var was = mergeWithFirstEqualZero(data, data0);
 	var is = mergeWithFirstEqualZero(data0, data);
-	console.log(was);
+	console.log(pie(was));
 	console.log(is);
+	//console.log(data1[1].count);
 	/* ------- SLICE ARCS -------*/
 
 	var slice = svg.select(".slices").selectAll("path.slice")
@@ -120,7 +105,7 @@ function change(data) {
 	slice.enter()
 		.insert("path")
 		.attr("class", "slice")
-		.style("fill", function(d) { return d.data.label; })
+		.style("fill", function(d,i) { return color(i);})//return d.data.label; })
 		.each(function(d) {
 			this._current = d;
 		});
