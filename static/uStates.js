@@ -238,7 +238,7 @@ LOOK TO MODIFY THIS FUNCTION
     function clickedOnState(x){
         var clickedState = abbrev(x); 
         if (clickedState == null){
-            clickedState = "OR";
+            clickedState = "CO";
             }
         console.log(clickedState)
     }
