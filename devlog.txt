@@ -21,3 +21,6 @@ Debugging pie chart creation
 
 karenC — 2018-04-17 12:38:05
 Finished pie chart creation code
+
+yiduoK -- 2018-04-17 19:24:03
+Cool pie chart testing complete; will use it for real now.
