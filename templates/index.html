@@ -76,13 +76,38 @@
 		stroke-width: 2px;
 		fill: none;
 	}
+
+	div.box {
+	  background: #EEE;
+	  height: 5000px;
+	  width: 5000px;
+	}
+	div.left {
+		background: #999;
+		float: left;
+		height: 100%;
+		width: auto;
+	}
+
+	div.right {
+		background: #666;
+		height: 900px;
+	}
 	
 </style>
 <body>
 	<h1> Heat Map of Shootings in the US </h1>	
-	<div id="tooltip"></div><!-- div to hold tooltip. -->
-	<svg width="960" height="900" id="statesvg"></svg> <!-- svg to hold the map. -->
-	<svg id="piepart"></svg> <!-- svg to hold the pie charts. -->
+	<div id = "box">
+		<div id  = "left">
+			<div id="tooltip"></div><!-- div to hold tooltip. -->
+			<svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
+		</div>
+
+		<div id = "right">
+
+			<svg width="860" height="600" id="piepart"></svg> 
+		</div>
+	</div>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="../static/stateAbbr.js"></script> <!--  used for converting -->
 	<script src="../static/uStates.js"></script> <!-- creates map -->
