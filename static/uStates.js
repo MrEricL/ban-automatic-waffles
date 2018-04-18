@@ -219,7 +219,7 @@
 
         function onClick(d){
 
-            p(d.n)
+            clickedOnState(d.n)
         }
 
         d3.select(id).selectAll(".state").data(uStatePaths).enter().append("path").attr("class", "state").attr("d", function(d) {
@@ -235,8 +235,12 @@
 /* 
 LOOK TO MODIFY THIS FUNCTION
 */
-function clickedOnState(x){
-    console.log(abbrev(x))
-}
+    function clickedOnState(x){
+        var clickedState = abbrev(x); 
+        if (clickedState == null){
+            clickedState = "OR";
+            }
+        console.log(clickedState)
+    }
 
 
