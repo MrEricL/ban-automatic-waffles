@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<link rel= "stylesheet" type= "text/css" href= "static/bootstrap.css">
 <style>
 	.state{
 		fill: none;
@@ -52,8 +53,7 @@
 	}
 	body {
 		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	    width: 960px;
-	    height: 500px;
+
 	    position: relative;
 		/**
 		margin:150px;
@@ -92,20 +92,34 @@
 		float: right;
 		width:  50%;
 	}
-	
+	h2{
+		text-align: center;
+		border: 1px solid gray;
+		padding: 5px;
+		font-color: black;
+		font-size: 14px;
+	}
+	.container{
+		float:right;
+		margin-left:500px;
+		margin-top:-700px;
+	}
 </style>
 <body>
-	<h1> Heat Map of Shootings in the US </h1>	
+
+  <h1> Heat Map of Shootings in the US </h1>
+	<h2>** Data is based off of the <a href="gun-violence.org">Gun Violence Database</a>, a crowdsourced database of gun violence incidents based on newspaper and television reports in the US. Anyone is able to contribute to the database, which may cause errors in accuracy. **</h2>
 	<div id = "box">
 		<div id  = "left">
 			<div id="tooltip"></div><!-- div to hold tooltip. -->
 			<svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
 		</div>
 
-		<div id = "right">
+		
+	</div>
+	<div class = "container" id = "right">
 
-			<svg width="860" height="600" id="piepart"></svg> 
-		</div>
+		<svg width="800" height="600" id="piepart"></svg> 
 	</div>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="../static/stateAbbr.js"></script> <!--  used for converting -->
