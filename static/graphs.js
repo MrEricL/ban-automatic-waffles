@@ -36,7 +36,7 @@
     d3.select(self.frameElement).style("height", "600px"); 
 
 
-var svg = d3.select("body")
+var svg = d3.select("#piepart")
 	.append("svg")
 	.append("g")
 
