@@ -248,14 +248,14 @@ LOOK TO MODIFY THIS FUNCTION
         gender_pie.innerHTML = "";
         age_pie.innerHTML = "";
 
+        if (clickedState == null){
+            clickedState = "CO";
+        }
+
         // actually putting the data into the charts
         race_pie_function(state_race[clickedState].asian, state_race[clickedState].white, state_race[clickedState].black, state_race[clickedState].hispanic);
         gender_pie_function(state_gender[clickedState].female, state_gender[clickedState].male);
         age_pie_function(state_age[clickedState]["0-20"], state_age[clickedState]["21-30"], state_age[clickedState]["31-40"], state_age[clickedState]["41-50"], state_age[clickedState]["51+"]);
-
-        if (clickedState == null){
-            clickedState = "CO";
-            }
     }
 
 
