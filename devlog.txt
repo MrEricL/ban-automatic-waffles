@@ -30,3 +30,6 @@ Stylization
 
 karenC — 2018-04-18 19:51:00
 Bootstrapping it up
+
+yiduoK -- 2018-04-18 20:44:16
+Three pie charts with dummy data, spacing is good; will use real data now
