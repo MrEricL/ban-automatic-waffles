@@ -48,14 +48,14 @@ function race_pie_function(asian, white, black, hispanic){
                 "text": "Shootings in the U.S. by Age",
                 "fontSize": 24,
                 "font": "open sans"
-            },
-            "subtitle": {
-                "text": "Dare I say, Real Data",
-                "color": "#999999",
-                "fontSize": 12,
-                "font": "open sans"
-            },
-            "titleSubtitlePadding": 10
+            }
+            // "subtitle": {
+            //     "text": "Dare I say, Real Data",
+            //     "color": "#999999",
+            //     "fontSize": 12,
+            //     "font": "open sans"
+            // },
+            // "titleSubtitlePadding": 10
         },
         "footer": {
             "color": "#999999",
@@ -68,13 +68,13 @@ function race_pie_function(asian, white, black, hispanic){
             "canvasHeight": 450,
             "pieOuterRadius": "70%"
         },
-        "footer": {
-        "text": "Source: www.FakeData.com",
-        "color": "#999999",
-        "fontSize": 10,
-        "font": "open sans",
-        "location": "bottom-left"
-        },
+        // "footer": {
+        // "text": "Source: www.FakeData.com",
+        // "color": "#999999",
+        // "fontSize": 10,
+        // "font": "open sans",
+        // "location": "bottom-left"
+        // },
         "data": {
             "sortOrder": "value-desc",
             "content": [
@@ -154,14 +154,14 @@ function gender_pie_function(female, male){
                 "text": "Shootings in the U.S. by Gender",
                 "fontSize": 24,
                 "font": "open sans"
-            },
-            "subtitle": {
-                "text": "Fake Data",
-                "color": "#999999",
-                "fontSize": 12,
-                "font": "open sans"
-            },
-            "titleSubtitlePadding": 10
+            }
+            // "subtitle": {
+            //     "text": "Fake Data",
+            //     "color": "#999999",
+            //     "fontSize": 12,
+            //     "font": "open sans"
+            // },
+            // "titleSubtitlePadding": 10
         },
         "footer": {
             "color": "#999999",
@@ -174,13 +174,13 @@ function gender_pie_function(female, male){
             "canvasHeight": 450,
             "pieOuterRadius": "70%"
         },
-        "footer": {
-        "text": "Source: www.FakeData.com",
-        "color": "#999999",
-        "fontSize": 10,
-        "font": "open sans",
-        "location": "bottom-left"
-        },
+        // "footer": {
+        // "text": "Source: www.FakeData.com",
+        // "color": "#999999",
+        // "fontSize": 10,
+        // "font": "open sans",
+        // "location": "bottom-left"
+        // },
         "data": {
             "sortOrder": "value-desc",
             "content": [
@@ -250,14 +250,14 @@ function age_pie_function(teens, twenties, thirties, forties, fifties){
                 "text": "Shootings in the U.S. by Race",
                 "fontSize": 24,
                 "font": "open sans"
-            },
-            "subtitle": {
-                "text": "Fake Data",
-                "color": "#999999",
-                "fontSize": 12,
-                "font": "open sans"
-            },
-            "titleSubtitlePadding": 10
+            }
+            // "subtitle": {
+            //     "text": "Fake Data",
+            //     "color": "#999999",
+            //     "fontSize": 12,
+            //     "font": "open sans"
+            // },
+            // "titleSubtitlePadding": 10
         },
         "footer": {
             "color": "#999999",
@@ -270,13 +270,13 @@ function age_pie_function(teens, twenties, thirties, forties, fifties){
             "canvasHeight": 450,
             "pieOuterRadius": "70%"
         },
-        "footer": {
-        "text": "Source: www.FakeData.com",
-        "color": "#999999",
-        "fontSize": 10,
-        "font": "open sans",
-        "location": "bottom-left"
-        },
+        // "footer": {
+        // "text": "Source: www.FakeData.com",
+        // "color": "#999999",
+        // "fontSize": 10,
+        // "font": "open sans",
+        // "location": "bottom-left"
+        // },
         "data": {
             "sortOrder": "value-desc",
             "content": [
