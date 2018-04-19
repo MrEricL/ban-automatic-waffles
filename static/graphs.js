@@ -36,201 +36,310 @@
     d3.select(self.frameElement).style("height", "600px"); 
 
 // DONUT CHART STARTS HERE
-var svg = d3.select("#piepart")
-	.append("svg")
-	.append("g")
 
-svg.append("g")
-	.attr("class", "slices");
-svg.append("g")
-	.attr("class", "labels");
-svg.append("g")
-	.attr("class", "lines");
+// race pie chart
+var race_pie = new d3pie("race_pie", {
+    "header": {
+        "title": {
+            "text": "Shootings in the U.S. by Age",
+            "fontSize": 24,
+            "font": "open sans"
+        },
+        "subtitle": {
+            "text": "Fake Data",
+            "color": "#999999",
+            "fontSize": 12,
+            "font": "open sans"
+        },
+        "titleSubtitlePadding": 10
+    },
+    "footer": {
+        "color": "#999999",
+        "fontSize": 10,
+        "font": "open sans",
+        "location": "bottom-left"
+    },
+    "size": {
+        "canvasWidth": 450,
+        "canvasHeight": 450,
+        "pieOuterRadius": "70%"
+    },
+    "footer": {
+    "text": "Source: www.FakeData.com",
+    "color": "#999999",
+    "fontSize": 10,
+    "font": "open sans",
+    "location": "bottom-left"
+    },
+    "data": {
+        "sortOrder": "value-desc",
+        "content": [
+            {
+                "label": "Asian",
+                "value": 5,
+                "color": "#ccb2b2"
+            },
+            {
+                "label": "White",
+                "value": 50,
+                "color": "#ccc8b2"
+            },
+            {
+                "label": "Black",
+                "value": 30,
+                "color": "#c3ccb2"
+            },
+            {
+                "label": "Hispanic",
+                "value": 15,
+                "color": "#b5ccb2"
+            }
+        ]
+    },
+    "labels": {
+        "outer": {
+            "pieDistance": 28
+        },
+        "inner": {
+            "hideWhenLessThanPercentage": 3
+        },
+        "mainLabel": {
+            "fontSize": 11
+        },
+        "percentage": {
+            "color": "#ffffff",
+            "decimalPlaces": 0
+        },
+        "value": {
+            "color": "#adadad",
+            "fontSize": 11
+        },
+        "lines": {
+            "enabled": true
+        },
+        "truncation": {
+            "enabled": true
+        }
+    },
+    "effects": {
+        "pullOutSegmentOnClick": {
+            "effect": "linear",
+            "speed": 400,
+            "size": 9
+        }
+    },
+    "misc": {
+        "gradient": {
+            "enabled": false,
+            "percentage": 100
+        }
+    },
+    "callbacks": {
+        "onMouseoverSegment": null,
+        "onMouseoutSegment": null,
+        "onClickSegment": null
+    }
+});
 
-var width = 960,
-    height = 450,
-	radius = Math.min(width, height) / 2;
+// gender pie chart
+var gender_pie = new d3pie("gender_pie", {
+    "header": {
+        "title": {
+            "text": "Shootings in the U.S. by Gender",
+            "fontSize": 24,
+            "font": "open sans"
+        },
+        "subtitle": {
+            "text": "Fake Data",
+            "color": "#999999",
+            "fontSize": 12,
+            "font": "open sans"
+        },
+        "titleSubtitlePadding": 10
+    },
+    "footer": {
+        "color": "#999999",
+        "fontSize": 10,
+        "font": "open sans",
+        "location": "bottom-left"
+    },
+    "size": {
+        "canvasWidth": 450,
+        "canvasHeight": 450,
+        "pieOuterRadius": "70%"
+    },
+    "footer": {
+    "text": "Source: www.FakeData.com",
+    "color": "#999999",
+    "fontSize": 10,
+    "font": "open sans",
+    "location": "bottom-left"
+    },
+    "data": {
+        "sortOrder": "value-desc",
+        "content": [
+            {
+                "label": "Female",
+                "value": 20,
+                "color": "#ccb2b2"
+            },
+            {
+                "label": "Male",
+                "value": 80,
+                "color": "#ccc8b2"
+            },
+        ]
+    },
+    "labels": {
+        "outer": {
+            "pieDistance": 28
+        },
+        "inner": {
+            "hideWhenLessThanPercentage": 1
+        },
+        "mainLabel": {
+            "fontSize": 11
+        },
+        "percentage": {
+            "color": "#ffffff",
+            "decimalPlaces": 0
+        },
+        "value": {
+            "color": "#adadad",
+            "fontSize": 11
+        },
+        "lines": {
+            "enabled": true
+        },
+        "truncation": {
+            "enabled": true
+        }
+    },
+    "effects": {
+        "pullOutSegmentOnClick": {
+            "effect": "linear",
+            "speed": 400,
+            "size": 9
+        }
+    },
+    "misc": {
+        "gradient": {
+            "enabled": false,
+            "percentage": 100
+        }
+    },
+    "callbacks": {
+        "onMouseoverSegment": null,
+        "onMouseoutSegment": null,
+        "onClickSegment": null
+    }
+});
 
-var pie = d3.layout.pie()
-	.sort(null)
-	.value(function(d) {
-		return d.count;
-	});
-
-var arc = d3.svg.arc()
-	.outerRadius(radius * 0.8)
-	.innerRadius(radius * 0.4);
-
-var outerArc = d3.svg.arc()
-	.innerRadius(radius * 0.9)
-	.outerRadius(radius * 0.9);
-
-svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-//var data1 = [{'count': 31, 'label': 'Male'}, {'count': 14, 'label': 'Female'}]
-var color = d3.scale.category20();
-
-var natdatagender = [{'count': 1804, 'label':'Male'}, {'count': 747, 'label':'Female'}];
-var natdatarace = [{'count': 28, 'label':'Black'}, {'count': 2466, 'label':'Asian'},{'count': 18, 'label':'White'}, {'count': 39, 'label':'Hispanic'}];
-var natdataage = [{'count': 400, 'label':'0-20'}, {'count': 409, 'label':'21-30'}, {'count': 221, 'label':'31-40'}, {'count': 98, 'label':'41-50'}, {'count':114, 'label':'51+'}];
-
-
-var key = function(d){ return d.data.label; };
-var val = function(d){return d.data.count; };
-
-var color = d3.scale.category20();
-	
-function mergeWithFirstEqualZero(first, second){
-	var secondSet = d3.set(); second.forEach(function(d) { secondSet.add(d.label); });
-
-	var onlyFirst = first
-		.filter(function(d){ return !secondSet.has(d.label) })
-		.map(function(d) { return {label: d.label, value: 0}; });
-	return d3.merge([ second, onlyFirst ])
-		.sort(function(a,b) {
-			return d3.ascending(a.label, b.label);
-		});
-}
-
-var duration = 500;
-
-change(natdatarace);
-function change(data) {
-	//var duration = +document.getElementById("duration").value;
-	var data0 = svg.select(".slices").selectAll("path.slice")
-		.data().map(function(d) { return val });
-	if (data0.length == 0) data0 = data;
-	var was = mergeWithFirstEqualZero(data, data0);
-	var is = mergeWithFirstEqualZero(data0, data);
-	console.log(pie(was));
-	console.log(is);
-	//console.log(data1[1].count);
-	/* ------- SLICE ARCS -------*/
-
-	var slice = svg.select(".slices").selectAll("path.slice")
-		.data(pie(was), key);
-
-	slice.enter()
-		.insert("path")
-		.attr("class", "slice")
-		.style("fill", function(d,i) { return color(i);})//return d.data.label; })
-		.each(function(d) {
-			this._current = d;
-		});
-
-	slice = svg.select(".slices").selectAll("path.slice")
-		.data(pie(is), key);
-
-	slice		
-		.transition().duration(duration)
-		.attrTween("d", function(d) {
-			var interpolate = d3.interpolate(this._current, d);
-			var _this = this;
-			return function(t) {
-				_this._current = interpolate(t);
-				return arc(_this._current);
-			};
-		});
-
-	slice = svg.select(".slices").selectAll("path.slice")
-		.data(pie(data), key);
-
-	slice
-		.exit().transition().delay(duration).duration(0)
-		.remove();
-
-	/* ------- TEXT LABELS -------*/
-
-	var text = svg.select(".labels").selectAll("text")
-		.data(pie(was), key);
-
-	text.enter()
-		.append("text")
-		.attr("dy", ".35em")
-		.style("opacity", 0)
-		.text(function(d) {
-			return d.data.label;
-		})
-		.each(function(d) {
-			this._current = d;
-		});
-	
-	function midAngle(d){
-		return d.startAngle + (d.endAngle - d.startAngle)/2;
-	}
-
-	text = svg.select(".labels").selectAll("text")
-		.data(pie(is), key);
-
-	text.transition().duration(duration)
-		.style("opacity", function(d) {
-			return d.data.value == 0 ? 0 : 1;
-		})
-		.attrTween("transform", function(d) {
-			var interpolate = d3.interpolate(this._current, d);
-			var _this = this;
-			return function(t) {
-				var d2 = interpolate(t);
-				_this._current = d2;
-				var pos = outerArc.centroid(d2);
-				pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
-				return "translate("+ pos +")";
-			};
-		})
-		.styleTween("text-anchor", function(d){
-			var interpolate = d3.interpolate(this._current, d);
-			return function(t) {
-				var d2 = interpolate(t);
-				return midAngle(d2) < Math.PI ? "start":"end";
-			};
-		});
-	
-	text = svg.select(".labels").selectAll("text")
-		.data(pie(data), key);
-
-	text
-		.exit().transition().delay(duration)
-		.remove();
-
-	/* ------- SLICE TO TEXT POLYLINES -------*/
-
-	var polyline = svg.select(".lines").selectAll("polyline")
-		.data(pie(was), key);
-	
-	polyline.enter()
-		.append("polyline")
-		.style("opacity", 0)
-		.each(function(d) {
-			this._current = d;
-		});
-
-	polyline = svg.select(".lines").selectAll("polyline")
-		.data(pie(is), key);
-	
-	polyline.transition().duration(duration)
-		.style("opacity", function(d) {
-			return d.data.value == 0 ? 0 : .5;
-		})
-		.attrTween("points", function(d){
-			this._current = this._current;
-			var interpolate = d3.interpolate(this._current, d);
-			var _this = this;
-			return function(t) {
-				var d2 = interpolate(t);
-				_this._current = d2;
-				var pos = outerArc.centroid(d2);
-				pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
-				return [arc.centroid(d2), outerArc.centroid(d2), pos];
-			};			
-		});
-	
-	polyline = svg.select(".lines").selectAll("polyline")
-		.data(pie(data), key);
-	
-	polyline
-		.exit().transition().delay(duration)
-		.remove();
-};
-
-
-
+// age pie chart
+var age_pie = new d3pie("age_pie", {
+    "header": {
+        "title": {
+            "text": "Shootings in the U.S. by Race",
+            "fontSize": 24,
+            "font": "open sans"
+        },
+        "subtitle": {
+            "text": "Fake Data",
+            "color": "#999999",
+            "fontSize": 12,
+            "font": "open sans"
+        },
+        "titleSubtitlePadding": 10
+    },
+    "footer": {
+        "color": "#999999",
+        "fontSize": 10,
+        "font": "open sans",
+        "location": "bottom-left"
+    },
+    "size": {
+        "canvasWidth": 450,
+        "canvasHeight": 450,
+        "pieOuterRadius": "70%"
+    },
+    "footer": {
+    "text": "Source: www.FakeData.com",
+    "color": "#999999",
+    "fontSize": 10,
+    "font": "open sans",
+    "location": "bottom-left"
+    },
+    "data": {
+        "sortOrder": "value-desc",
+        "content": [
+            {
+                "label": "0-20",
+                "value": 5,
+                "color": "#ccb2b2"
+            },
+            {
+                "label": "21-30",
+                "value": 30,
+                "color": "#ccc8b2"
+            },
+            {
+                "label": "31-40",
+                "value": 35,
+                "color": "#c3ccb2"
+            },
+            {
+                "label": "41-50",
+                "value": 20,
+                "color": "#b5ccb2"
+            },
+            {
+                "label": "51+",
+                "value": 10,
+                "color": "#b2c2cc"
+            }
+        ]
+    },
+    "labels": {
+        "outer": {
+            "pieDistance": 28
+        },
+        "inner": {
+            "hideWhenLessThanPercentage": 3
+        },
+        "mainLabel": {
+            "fontSize": 11
+        },
+        "percentage": {
+            "color": "#ffffff",
+            "decimalPlaces": 0
+        },
+        "value": {
+            "color": "#adadad",
+            "fontSize": 11
+        },
+        "lines": {
+            "enabled": true
+        },
+        "truncation": {
+            "enabled": true
+        }
+    },
+    "effects": {
+        "pullOutSegmentOnClick": {
+            "effect": "linear",
+            "speed": 400,
+            "size": 9
+        }
+    },
+    "misc": {
+        "gradient": {
+            "enabled": false,
+            "percentage": 100
+        }
+    },
+    "callbacks": {
+        "onMouseoverSegment": null,
+        "onMouseoutSegment": null,
+        "onClickSegment": null
+    }
+});

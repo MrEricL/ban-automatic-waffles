@@ -123,23 +123,17 @@
 		</div>
 	</div>
 	
-	<div class="container">
+	<!-- <div class="container"> -->
 		<div class="row">
-			<div class="col">
-				<svg width="600" height="600" id="race_piepart"></svg>
-			</div>
-			<div class="col">
-				<svg width="600" height="600" id="gender_piepart"></svg>
-			</div>
-	
-			<div class="col">
-				<svg width="600" height="600" id="age_piepart"></svg>
-			</div>
+			<div class="col" id="race_pie"></div>
+			<div class="col" id="gender_pie"></div>
+			<div class="col" id="age_pie"></div>
 		</div>
-	
-	</div>
+	<!-- </div> -->
 
-	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.2/d3.min.js"></script>
+	<!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
+    <script src="../static/d3pie.min.js"></script>
 	<script src="../static/stateAbbr.js"></script> <!--  used for converting -->
 	<script src="../static/uStates.js"></script> <!-- creates map -->
 	<script src="../static/graphs.js"></script><!-- creates graphs -->
