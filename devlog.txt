@@ -33,3 +33,6 @@ Bootstrapping it up
 
 yiduoK -- 2018-04-18 20:44:16
 Three pie charts with dummy data, spacing is good; will use real data now
+
+yiduoK -- 2018-04-18 22:04:8
+All pie charts now have real data; don't have them transitioning into each other yet though

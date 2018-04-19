@@ -141,20 +141,24 @@ f.write(json.dumps(state_shootings))
 
 print '\n\nby gender:'
 f.write('\n\nstate gender\n')
-print state_gender_karen
-f.write(json.dumps(state_gender_karen))
-# print state_gender
+# print state_gender_karen
+# f.write(json.dumps(state_gender_karen))
+print state_gender
+f.write(json.dumps(state_gender))
 
 print '\n\nby race:'
 f.write('\n\nstate race\n')
-print state_race_karen
-f.write(json.dumps(state_race_karen))
-# print state_race
+# print state_race_karen
+# f.write(json.dumps(state_race_karen))
+print state_race
+f.write(json.dumps(state_race))
+
 print '\n\nby age:'
 f.write('\n\nstate age\n')
-print state_age_karen
-f.write(json.dumps(state_age_karen))
-# print state_age
+# print state_age_karen
+# f.write(json.dumps(state_age_karen))
+print state_age
+f.write(json.dumps(state_age))
 
 male_shootings = 0
 for state in state_gender:
