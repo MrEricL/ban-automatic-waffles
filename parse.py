@@ -68,9 +68,29 @@ for state in states:
 
 counting =0
 
-with open('events.csv') as csvfile:
+# 2000 - 2017
+date_victims = {}
+for year in range(2000, 2018):
+    date_victims[year] = {}
+    for month in range(0, 13):
+        date_victims[year][month] = 0
+print date_victims
+
+date_shootings = {}
+for year in range(2000, 2018):
+    date_shootings[year] = {}
+    for month in range(0, 13):
+        date_shootings[year][month] = 0
+print date_shootings
+
+with open('with_dates.csv') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
+        # date stuff
+        full_date = row['Date']
+        year = int(full_date[:4])
+        month = int(full_date[5:7])
+
         layers = row['Address'].split(", ")
         try:
             if layers[2] == 'USA':
@@ -88,6 +108,11 @@ with open('events.csv') as csvfile:
 
         try:
             new_list = json.loads(new_list)
+            try:
+                date_shootings[year][month] += 1
+                date_victims[year][month] += len(new_list)
+            except:
+                print "don't have " + str(year)
             for person in new_list:
                 if person['is_victim'] == True and layers[2] == 'USA':
                     #gender
@@ -256,3 +281,13 @@ f.write("\n\n41-50\n")
 f.write(str(forties))
 f.write("\n\n51+\n")
 f.write(str(fifties))
+
+print "\nnumber of victims by date"
+f.write("\n\nnumber of victims by date\n")
+print date_victims
+f.write(json.dumps(date_victims))
+
+print "\nnumber of shootings by date"
+f.write("\n\nnumber of shootings by date\n")
+print date_shootings
+f.write(json.dumps(date_shootings))

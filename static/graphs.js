@@ -45,7 +45,7 @@ function race_pie_function(asian, white, black, hispanic){
     var race_pie = new d3pie("race_pie", {
         "header": {
             "title": {
-                "text": "Shootings in the U.S. by Age",
+                "text": "Shootings in the U.S. by Race",
                 "fontSize": 24,
                 "font": "open sans"
             }
@@ -247,7 +247,7 @@ function age_pie_function(teens, twenties, thirties, forties, fifties){
     var age_pie = new d3pie("age_pie", {
         "header": {
             "title": {
-                "text": "Shootings in the U.S. by Race",
+                "text": "Shootings in the U.S. by Age",
                 "fontSize": 24,
                 "font": "open sans"
             }
