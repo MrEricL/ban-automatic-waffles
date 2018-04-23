@@ -209,8 +209,8 @@
     uStates.draw = function(id, data, toolTip) {
         function mouseOver(d) {
             d3.select("#tooltip").transition().duration(200).style("opacity", .9);
-
-            d3.select("#tooltip").html(toolTip(d.n, data[d.id])).style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY - 28) + "px");
+            var mouseCoords = d3.mouse(d3.select("#tooltip").node().parentElement);
+            d3.select("#tooltip").html(toolTip(d.n, data[d.id])).style("left", (mouseCoords[0]) + "px").style("top", (mouseCoords[1]) + "px");
         }
 
         function mouseOut() {
