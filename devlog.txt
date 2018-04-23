@@ -16,8 +16,14 @@ Worked on displaying pie charts
 yiduoK -- 2018-04-12 21:13:15
 dictionary organized by race, gender, and age
 
+ericL — 2018-04-15 12:00:00
+Quality of life update on HTML/JS files
+
 karenC — 2018-04-16 12:10:00
 Debugging pie chart creation
+
+ericL — 2018-04-16 17:30:00
+Added the real state data to the SVG
 
 karenC — 2018-04-17 12:38:05
 Finished pie chart creation code
@@ -25,8 +31,14 @@ Finished pie chart creation code
 yiduoK -- 2018-04-17 19:24:03
 Cool pie chart testing complete; will use it for real now.
 
+ericL — 2018-04-17 20:05:00
+Fixed svg and edited the div
+
 karenC — 2018-04-18 14:04:02
 Stylization
+
+ericL — 2018-04-18 16:30:00
+Added the state on click function
 
 karenC — 2018-04-18 19:51:00
 Bootstrapping it up
