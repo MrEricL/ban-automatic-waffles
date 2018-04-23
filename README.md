@@ -1,6 +1,7 @@
 # Data visualization project
 
 Team ban_automatic_waffles
+
 By: Karen Chen, Daniel Chernovolenko, Yiduo Ke, Eric Li
 
 
