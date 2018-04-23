@@ -1,11 +1,14 @@
 # Data visualization project
 
+Team ban_automatic_waffles
 By: Karen Chen, Daniel Chernovolenko, Yiduo Ke, Eric Li
 
 
 ## Dataset
 
 We are using the [Gun Violence Database](http://gun-violence.org/). The database will include information on from the dates, locations and times of shootings, to details on the victims and the shooters. 
+
+This dataset is curated through a community effort and does not seem to provide 100% accurate data. 
 
 ## Relevance 
 
@@ -21,9 +24,8 @@ The website would display a heat map of gun violence by state with various butto
 
 ## User Interaction
 
-The user would be able to click on states and view the information more indepth through a window that comes up from the side. It would also be possible to see the breakdown of the victims and shooters, and transition between different graphs of general gun violence, racial breakdowns, age breakdowns, and gender breakdowns. This would be shown using pie charts and could be selected with buttons. 
+The user is able to click on states and view the information more indepth through a piecharts displayed under the map. It would also be possible to see the breakdown of the victims and shooters, racial breakdowns, age breakdowns, and gender breakdowns. This would be shown using pie charts. 
 
-Possible: On click, zoom into state and display a heatmap of shootings in specific districts.
 
 ## Questions
 
